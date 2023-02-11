@@ -1,0 +1,3 @@
+#!/bin/bash
+find . -name "olleh" -printf "%m\n" | xargs -I {} find . -name "hello" -print0 | xargs -0 chmod {}
+
