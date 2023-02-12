@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -name "hello" -print0 | xargs -0 chmod a+x
+chmod 753 hello
