@@ -1,3 +1,12 @@
 #!/bin/bash
-head -n 3 iacta | tail -n 1
+# Read the file line by line and count the lines
+line_count=0
+while read line; do
+  line_count=$((line_count + 1))
+  # If the current line is the third line, print it and exit the loop
+  if [[ $line_count -eq 3 ]]; then
+    echo "$line"
+    break
+  fi
+done < "iacta"
 
