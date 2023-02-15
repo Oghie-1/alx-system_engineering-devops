@@ -1,3 +1,3 @@
 #!/bin/bash
-find . -type d -not -name '.' | wc -l
+dir_count=$(find . -mindepth 1 -type d | wc -l)
 
