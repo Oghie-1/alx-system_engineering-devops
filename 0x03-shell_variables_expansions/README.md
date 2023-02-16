@@ -1,6 +1,6 @@
 <h1>Shell, init files, variables and expansions</h1>
 
-Project done during Full Stack Software Engineering studies at Holberton School. It aims to learn about alias builtin, help builtin, local, global and reserved variables (PATH, HOME and PS1), special parameters $? and single an double quotes in Shell.
+Project done during Full Stack Software Engineering studies at ALX. It aims to learn about alias builtin, help builtin, local, global and reserved variables (PATH, HOME and PS1), special parameters $? and single an double quotes in Shell.
 
 <h2>Technologies</h2>
 
