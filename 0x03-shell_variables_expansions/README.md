@@ -1,14 +1,16 @@
-<h1>Shell, init files, variables and expansions</h1>
+<h1>Project Title: 0x03. Shell, init files, variables and expansions</h1>
 
-Project done during Full Stack Software Engineering studies at ALX. It aims to learn about alias builtin, help builtin, local, global and reserved variables (PATH, HOME and PS1), special parameters $? and single an double quotes in Shell.
+<p> <h3>Description: </h3> <h4>Project done during Full Stack Software Engineering studies at ALX. It aims to learn about alias builtin, help builtin, local, global and reserved variables (PATH, HOME and PS1), special parameters $? and single an double quotes in Shell.</h4>
+
+</p>
 
 <h2>Technologies</h2>
 
-Scripts written in Bash 4.3.11(1)
-Tested on Ubuntu 14.04 LTS
-Files
+<p> <h4>Scripts written in Bash 4.3.11(1)
+	Tested on Ubuntu 14.04 LTS </h4>
+</p>
 
-<strong>All of the following files are scripts:</strong>
+<h2>File</h2> <strong>All of the following files are scripts:</strong>
 
 <table>
   <h3>
@@ -56,63 +58,54 @@ Files
   <tr>
     <td>6</td>
     <td>6-create_local_variable	</td> 
-    <td>Creates a new local variable named BETTY</td>
+    <td>Creates a new local variable named BEST with the value school</td>
   </tr>
   
   <tr>
-    <td>1</td>
-    <td>1-hello_you</td> 
-    <td>Prints hello user, where user is the current Linux user</td>
+    <td>7</td>
+    <td>7-create_global_variable</td> 
+    <td>Creates a new global variable named BEST</td>
   </tr>
   
    <tr>
-    <td>1</td>
-    <td>1-hello_you</td> 
-    <td>Prints hello user, where user is the current Linux user</td>
+    <td>8</td>
+    <td>8-true_knowledge</td> 
+    <td>Prints the result of the addition of 128 with the value stored in the environment variable TRUEKNOWLEDGE, followed by a new line</td>
   </tr>
   
    <tr>
-      <td>1</td>
-      <td>1-hello_you</td> 
-      <td>Prints hello user, where user is the current Linux user</td>
+      <td>9</td>
+      <td>9-divide_and_rule</td> 
+      <td>Prints the result of POWER divided by DIVIDE, followed by a new line</td>
   </tr>
   
    <tr>
-    <td>1</td>
-    <td>1-hello_you</td> 
-    <td>Prints hello user, where user is the current Linux user</td>
+    <td>10</td>
+    <td>10-love_exponent_breath</td> 
+    <td>Displays the result of BREATH to the power LOVE</td>
   </tr>
   
    <tr>
-    <td>1</td>
-    <td>1-hello_you</td> 
-    <td>Prints hello user, where user is the current Linux user</td>
+    <td>11</td>
+    <td>11-binary_to_decimal</td> 
+    <td>Converts a number from base 2 to base 10</td>
   </tr>
   
    <tr>
-    <td>1</td>
-    <td>1-hello_you</td> 
-    <td>Prints hello user, where user is the current Linux user</td>
+    <td>12</td>
+    <td>12-combinations</td> 
+    <td>Prints all possible combinations of two letters, except oo</td>
+  </tr>
+	
+   <tr>
+    <td>13</td>
+    <td>13-print_float</td> 
+    <td>Prints a number with two decimal places. The number is stored in the environment variable NUM</td>
   </tr>
    
    
    
-
 </table>
 	
 	
-	
-	
-	
 
-7-create_global_variable	Creates a new global variable named HOLBERTON
-8-true_knowledge	Prints the result of the addition of 128 with the value stored in the environment variable TRUEKNOWLEDGE, followed by a new line
-9-divide_and_rule	Prints the result of POWER divided by DIVIDE, followed by a new line
-10-love_exponent_breath	Displays the result of BREATH to the power LOVE
-11-binary_to_decimal	Converts a number from base 2 to base 10
-12-combinations	Prints all possible combinations of two letters, except oo
-13-print_float	Prints a number with two decimal places. The number is stored in the environment variable NUM
-14-decimal_to_hexadecimal	Converts a number from base 10 to base 16
-100-rot13	Encodes and decodes text using the rot13 encryption
-101-odd	Prints every other line from the input, starting with the first line
-102-water_and_str	Adds the two numbers stored in the environment variables WATER and STIR and prints the result
