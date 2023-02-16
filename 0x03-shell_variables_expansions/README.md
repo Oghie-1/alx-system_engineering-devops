@@ -1,23 +1,110 @@
-Shell, init files, variables and expansions
+<h1>Shell, init files, variables and expansions</h1>
 
-Project done during Full Stack Software Engineering studies at ALX Software Engineering Program. It aims to learn about alias builtin, help builtin, local, global and reserved variables (PATH, HOME and PS1), special parameters $? and single an double quotes in Shell.
+Project done during Full Stack Software Engineering studies at Holberton School. It aims to learn about alias builtin, help builtin, local, global and reserved variables (PATH, HOME and PS1), special parameters $? and single an double quotes in Shell.
 
-Technologies
+<h2>Technologies</h2>
 
 Scripts written in Bash 4.3.11(1)
 Tested on Ubuntu 14.04 LTS
 Files
 
-All of the following files are scripts:
+<strong>All of the following files are scripts:</strong>
 
-Filename	Description
-0-alias	Creates an alias
-1-hello_you	Prints hello user, where user is the current Linux user
-2-path	Add /action to the PATH. /action should be the last directory the shell looks into when looking for a program
-3-paths	Counts the number of the directories in the PATH
-4-global_variables	Lists environment variables
-5-local_variables	Lists all local variables and environment variables, and functions
-6-create_local_variable	Creates a new local variable named BETTY
+<table>
+  <h3>
+    <tr>
+      <th>Script number</th>
+      <th>Script Name</th> 
+      <th>Description</th>
+    </tr>
+  </h3>
+  <tr>
+    <td>0</td>
+    <td>0-alias</td> 
+    <td>Creates an alias</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>1-hello_you</td> 
+    <td>Prints hello user, where user is the current Linux user</td>
+  </tr>
+  
+  <tr>
+    <td>2</td>
+    <td>2-path</td> 
+    <td>Add /action to the PATH. /action should be the last directory the shell looks into when looking for a program</td>
+  </tr>
+  
+  <tr>
+    <td>3</td>
+    <td>3-paths</td> 
+    <td>Counts the number of the directories in the PATH</td>
+  </tr>
+   
+  <tr>
+    <td>4</td>
+    <td>4-global_variables</td> 
+    <td>Lists environment variables</td>
+  </tr>
+  
+  <tr>
+    <td>5</td>
+    <td>5-local_variables</td> 
+    <td>Lists all local variables and environment variables, and functions</td>
+  </tr>
+  
+  <tr>
+    <td>6</td>
+    <td>6-create_local_variable	</td> 
+    <td>Creates a new local variable named BETTY</td>
+  </tr>
+  
+  <tr>
+    <td>1</td>
+    <td>1-hello_you</td> 
+    <td>Prints hello user, where user is the current Linux user</td>
+  </tr>
+  
+   <tr>
+    <td>1</td>
+    <td>1-hello_you</td> 
+    <td>Prints hello user, where user is the current Linux user</td>
+  </tr>
+  
+   <tr>
+      <td>1</td>
+      <td>1-hello_you</td> 
+      <td>Prints hello user, where user is the current Linux user</td>
+  </tr>
+  
+   <tr>
+    <td>1</td>
+    <td>1-hello_you</td> 
+    <td>Prints hello user, where user is the current Linux user</td>
+  </tr>
+  
+   <tr>
+    <td>1</td>
+    <td>1-hello_you</td> 
+    <td>Prints hello user, where user is the current Linux user</td>
+  </tr>
+  
+   <tr>
+    <td>1</td>
+    <td>1-hello_you</td> 
+    <td>Prints hello user, where user is the current Linux user</td>
+  </tr>
+   
+   
+   
+
+</table>
+	
+	
+	
+	
+	
+
 7-create_global_variable	Creates a new global variable named HOLBERTON
 8-true_knowledge	Prints the result of the addition of 128 with the value stored in the environment variable TRUEKNOWLEDGE, followed by a new line
 9-divide_and_rule	Prints the result of POWER divided by DIVIDE, followed by a new line
