@@ -1,2 +1,3 @@
 #!/bin/bash
-file -m ../alx-system_engineering-devops/0x00-shell_basics/school.mgc data.txt
+$ file -m alx-system_engineering-devops/0x00-shell_basics/school.mgc
+
