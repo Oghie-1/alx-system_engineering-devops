@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
+# displays information about the holbertonschool file
 
 
 file="school"
+
 
 if [ -e "$file" ]; then
 	echo "school file exists"
