@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#script that display the time 
+
+
+hours=0
+minutes=1
+while ((hours <= 12)); do
+	echo "Hour: $hours"
+	while ((minutes <= 59)); do
+		echo $minutes
+		minutes=$((minutes + 1))
+
+	done	
+	((hours++))
+	minutes=1
+	
+done
