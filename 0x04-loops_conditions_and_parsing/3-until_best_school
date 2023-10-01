@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#this script uses until to write best school 10x
+
+
+i=0
+until ((i >= 10)); do
+	echo "Best school"
+	((i++))
+done
