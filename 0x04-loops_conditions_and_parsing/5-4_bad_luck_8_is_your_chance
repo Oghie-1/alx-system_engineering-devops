@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#this script uses conditionals to display a set message at diff intervals
+
+
+i=1
+while ((i < 11)); do
+	
+	if((i == 4)); then
+		echo "Bad luck"
+	
+	elif((i == 8)); then
+		echo "Good luck"
+	
+	else
+		echo "Best School"
+	fi
+	((i++))
+done
