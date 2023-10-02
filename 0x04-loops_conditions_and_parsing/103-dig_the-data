@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#script that groups visitors by IP and HTTP status code, and displays this data.
+
+
+apache_log_file="apache-access.log"
+
+if [ -f "$apache_log_file" ]; then
+    # Use awk to group and count occurrences, then sort and display the result
+    awk '{ ip_count[$1" "$9]++ }
+         END {
+             for (entry in ip_count) {
+                 split(entry, parts)
+                 print ip_count[entry], parts[1], parts[2]
+             }
+         }' "$apache_log_file" | sort -nr
+else
+    echo "Apache log file not found: $apache_log_file"
+fi

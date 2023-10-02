@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+
+#a script that displays visitors IP along with HTTP status code from the apache log file
+
+
+apache_log_file="apache-access.log"  # Replace with the actual path to your Apache log file
+
+# Check if the log file exists
+if [ -f "$apache_log_file" ]; then
+    # Use awk to extract and display the visitor IP and HTTP status code
+    awk '{print $1, $9}' "$apache_log_file"
+else
+    echo "Apache log file not found: $apache_log_file"
+fi
