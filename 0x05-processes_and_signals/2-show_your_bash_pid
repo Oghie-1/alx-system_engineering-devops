@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#shellcheck disable=SC2009
+
+
+#get the process list and filter lines containing "bash"
+process_list=$(ps aux | grep bash)
+
+
+#use awk to extract the PID from the filtered lines
+my_pid=$(echo "process_list" | awk '/basj/ {print $2}')
+
+# Print the filtered lines containing "bash" and your Bash PID
+echo "$process_list"
+
+# Display your Bash PID
+echo "Your Bash PID is: $my_pid"
