@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#a script that change local host
+
+
+#Check if running inside Docker
+if [ -f "/.dockerenv" ]; then
+    #Modify the /etc/hosts file
+
+    #Check if localhost mapping already exists
+    grep -q "127.0.0.2 localhost" /etc/hosts
+    if [ $? -ne 0 ]; then
+	    echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts
+    fi
+
+    #Map facebook.com to 8.8.8.8
+    echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts
+
+    #Flush DNS cache (for systemd-resolved)
+    sudo systemd-resolve --flush-caches
+
+    echo "DNS configuration updated successfully."
+else
+    #if not in Docker, revert localhost to the defult loopback address
+    echo "This script should be run inside a Docker container."
+    
+    #remove the line that maps localhost to 127.0.0.2
+    sudo sed -i "/127.0.0.2 localhost/d" /etc/hosts
+    echo "Reverted localhost to default loopback address"
+    exit 1
+fi
