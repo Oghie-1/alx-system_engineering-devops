@@ -7,8 +7,7 @@ if [ -f "/.dockerenv" ]; then
     #Modify the /etc/hosts file
 
     #Check if localhost mapping already exists
-    grep -q "127.0.0.2 localhost" /etc/hosts
-    if [ $? -ne 0 ]; then
+    if ! grep -q "127.0.0.2 localhost" /etc/hosts; then
 	    echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts
     fi
 
