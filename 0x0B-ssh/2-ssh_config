@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+Home server1
+    HostName 54.175.106.5
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication 
