@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#installs and setup haproxy
+sudo apt-get -y update
+sudo apt-get install -y haproxy
+sudo echo "ENABLED=1">>/etc/default/haproxy
+#Listen to web1 and web2 servers
+sudo echo "
+	frontend www
+		bind*:80
+		default_backend nginx_pool
+
+	backend nginx_pool
+		balance roundrobin
+		mode http
+		server 249735-web-01 54.175.106.5:80 check
+		server 249735-web-02 54.196.203.28:80 check
+	" >> /etc/haproxy/haproxy.cfg
+	sudo haproxy -f /etc/haproxy/haproxy.cfg -c
+	sudo service haproxy restart
