@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Ensure Nginx is installed
+apt-get update
+apt-get install -y nginx
+
+# Check if Nginx is running, if not, start it
+if ! service nginx status >/dev/null; then
+    service nginx start
+fi
+
+# Check the main Nginx configuration
+nginx_conf="/etc/nginx/nginx.conf"
+if ! grep -q "listen 80;" "$nginx_conf"; then
+    echo "listen 80;" >> "$nginx_conf"
+fi
+
+# Check configurations in sites-available
+sites_available="/etc/nginx/sites-available/"
+for site_conf in "$sites_available"/*; do
+    if ! grep -q "listen 80;" "$site_conf"; then
+        echo "listen 80;" >> "$site_conf"
+    fi
+done
+
+# Restart Nginx
+service nginx restart
