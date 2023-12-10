@@ -1,27 +1,29 @@
 #!/usr/bin/env bash
 
-# Ensure Nginx is installed
-apt-get update
-apt-get install -y nginx
+# Define  variables for file paths
+NGINX_SITES_AVAILABLE="/etc/nginx/sites-available"
+NGINX_SITES_ENABLED="/etc/nginx/sites-enabled"
+NGINX_DEFAULT_CONFIG="default"
 
-# Check if Nginx is running, if not, start it
-if ! service nginx status >/dev/null; then
-    service nginx start
+# Check if Nginx is installed if not install Nginx
+if ! command -v nginx &> /dev/null; then
+	echo "Nginx is not installed. Installing Nginx.. Please Wait!"
+	apt-get update
+	apt-get install -y nginx
+	echo "Installation Complete"
 fi
 
-# Check the main Nginx configuration
-nginx_conf="/etc/nginx/nginx.conf"
-if ! grep -q "listen 80;" "$nginx_conf"; then
-    echo "listen 80;" >> "$nginx_conf"
+
+# Check if the default configuration file exits
+if [ ! -e "$NGINX_SITES_AVAILABLE/$NGINX_DEFAULT_CONFIG"]; then
+	echo "Defult Nginx configuration file not found at $NGINX_SITE_AVAILABLE/$NGINX_DEFAULT_CONFIG"
+	exit 1
 fi
 
-# Check configurations in sites-available
-sites_available="/etc/nginx/sites-available/"
-for site_conf in "$sites_available"/*; do
-    if ! grep -q "listen 80;" "$site_conf"; then
-        echo "listen 80;" >> "$site_conf"
-    fi
-done
+#create a symbolic link to the default configuration
+ln -s "$NGINX_SITES_AVAILABLE/$NGINX_DEFAULT_CONFIG" "$NGINX_SITES_ENABLED/$NGINX_DEFAULT_CONFIG"
 
 # Restart Nginx
 service nginx restart
+
+echo "NGINX configuration completed successfully."
