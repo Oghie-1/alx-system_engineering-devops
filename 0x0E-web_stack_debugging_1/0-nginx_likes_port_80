@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 # Define  variables for file paths
 NGINX_SITES_AVAILABLE="/etc/nginx/sites-available"
 NGINX_SITES_ENABLED="/etc/nginx/sites-enabled"
@@ -11,19 +12,49 @@ if ! command -v nginx &> /dev/null; then
 	apt-get update
 	apt-get install -y nginx
 	echo "Installation Complete"
+	exit 1
 fi
 
 
 # Check if the default configuration file exits
-if [ ! -e "$NGINX_SITES_AVAILABLE/$NGINX_DEFAULT_CONFIG"]; then
+if [ ! -e "$NGINX_SITES_AVAILABLE/$NGINX_DEFAULT_CONFIG" ]; then
 	echo "Defult Nginx configuration file not found at $NGINX_SITE_AVAILABLE/$NGINX_DEFAULT_CONFIG"
 	exit 1
 fi
 
-#create a symbolic link to the default configuration
-ln -s "$NGINX_SITES_AVAILABLE/$NGINX_DEFAULT_CONFIG" "$NGINX_SITES_ENABLED/$NGINX_DEFAULT_CONFIG"
+
+# check if the symbolic link already exits
+if [ -e "$NGINX_SITES_ENABLED/$NGINX_DEFAULT_CONFIG" ]; then
+	echo "Symbolic link '$NGINX_SITES_ENABLED/$NGINX_DEFAULT_CONFIG' already exists. Skipping link creation."
+else
+	# Remove the default symbolic link if it exists
+	if [ -e "$NGINX_SITES_ENABLED/$NGINX_DEFAULT_CONFIG"  ]; then
+		rm "$NGINX_SITES_ENABLED//$NGINX_DEFAULT_CONFIG"
+	fi
+	
+
+	#create a symbolic link to the default configuration
+	ln -s "$NGINX_SITES_AVAILABLE/$NGINX_DEFAULT_CONFIG" "$NGINX_SITES_ENABLED/$NGINX_DEFAULT_CONFIG"
+	
+	# Check if the link creation was successfull
+	if [ $? -eq 0 ]; then
+		echo "Symbolic link created successfully. "
+	else
+		echo "Fialed to creat symbolic link. Exiting.."
+		exit 1
+	fi
+fi
+
 
 # Restart Nginx
 service nginx restart
+
+# Check if Nginx restart was successful
+if [ $? -eq 0 ]; then
+	echo "Nginx restarted succesfully. "
+
+else
+	echo "Failed to restart Nginx. Check the configuration setting and Try restarting Manually"
+fi
 
 echo "NGINX configuration completed successfully."
