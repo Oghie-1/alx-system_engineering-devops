@@ -1,5 +1,6 @@
-./0-nginx_likes_port_80: line 18: [: missing `]'
-ln: failed to create symbolic link '/etc/nginx/sites-enabled/default': File exists
+Symbolic link '/etc/nginx/sites-enabled/default' already exists. Skipping link creation.
+Failed to restart Nginx. Check the configuration setting and Try restarting Manually
+Nginx restart output
  * Restarting nginx nginx
    ...fail!
 NGINX configuration completed successfully.
