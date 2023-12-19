@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Check if ufw is already installed
+if ! command -v ufw &> /dev/null; then
+    sudo apt-get update
+    sudo apt-get install ufw
+fi
+
+# Enable IPv6
+sudo sed -i 's/IPV6=.*/IPV6=yes/' /etc/default/ufw
+
+# Disable and then enable ufw
+sudo ufw disable
+sudo ufw enable
+
+# Set default policies
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# Allow specific ports
+sudo ufw allow 22/tcp 443/tcp 80/tcp
