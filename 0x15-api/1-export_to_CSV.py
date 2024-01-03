@@ -5,7 +5,6 @@ import requests
 import sys
 
 
-
 def make_csv(users=None, todos=None):
     """Turns payloads into CSV format"""
     titles = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
@@ -37,4 +36,3 @@ if __name__ == "__main__":
                 todos_len += 1
 
         make_csv(users, todos)
-

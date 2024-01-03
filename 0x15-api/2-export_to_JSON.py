@@ -29,4 +29,3 @@ if __name__ == "__main__":
                              params=args_user_id).json()
 
         make_json(users, todos, sys.argv[1])
-
