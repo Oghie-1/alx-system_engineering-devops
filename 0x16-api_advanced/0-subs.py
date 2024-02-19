@@ -13,8 +13,9 @@ def number_of_subscribers(subreddit):
     sub_info = requests.get("https://www.redit.com/r/{}.json".format(subreddit),
             headers={"User-Agent": "My-User-Agent"},
             allow_redirects=False)
-
-    print("Status Code:", sub_info.status_code)  #debugging
+    
+    #debugging
+    print("Status Code:", sub_info.status_code)
 
     if sub_info.status_code >= 300:
         print("Ok")
