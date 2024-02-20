@@ -1,25 +1,25 @@
 #!/usr/bin/python3
 """
-Recursively queries the Reddit API
+This module contains a recursive function to query the Reddit API
+and return a list of hot articles for a given subreddit.
 """
+
 import requests
 
 def recurse(subreddit, hot_list=None, after=None):
-    """Recursively queries the Reddit API and 
-    returns a list containing
+    """Recursively queries the Reddit API and returns a list containing
     the titles of all hot articles for a given subreddit.
 
     Args:
         subreddit (str): The name of the subreddit.
-        hot_list (list, optional): List to store the titles of hot articles. 
+        hot_list (list, optional): List to store the titles of hot articles.
         Defaults to None.
-        after (str, optional): Identifier for the last post in the previous 
-        page of results. Defaults to None.
+        after (str, optional): Identifier for the last post in the previous page of results. 
+        Defaults to None.
 
     Returns:
-        list: List containing the titles of all 
-        hot articles for the given subreddit.
-        Returns None if no results are found or if the subreddit is not valid.
+        list: List containing the titles of all hot articles for the given subreddit.
+              Returns None if no results are found or if the subreddit is not valid.
     """
     if hot_list is None:
         hot_list = []
@@ -49,10 +49,10 @@ def recurse(subreddit, hot_list=None, after=None):
 
     except requests.exceptions.HTTPError as http_err:
         if response.status_code == 404:
-            print(f"The subreddit '{subreddit}' does not exist.")
+            return "Invalid subreddit"
+        elif response.status_code == 403:
+            return "Forbidden"
         else:
-            print("HTTP error occurred:", http_err)
-        return None
+            return "HTTP error"
     except Exception as e:
-        print("An error occurred:", e)
-        return None
+        return "An error occurred"
