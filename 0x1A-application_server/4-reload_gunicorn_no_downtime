@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Gracefully reloads Gunicorn.
+
+# Find the process IDs of Gunicorn processes and gracefully reload them
+pgrep gunicorn | xargs kill -HUP
+
+# Check if the command was successful and display a message
+if [ $? -eq 0 ]; then
+    echo "Gunicorn gracefully reloaded."
+else
+    echo "Failed to reload Gunicorn."
+fi

@@ -1,0 +1,84 @@
+##
+# To gain a solid understanding of Nginx configuration files and unlock its full potential,
+# refer to the following URLs:
+# - Pitfalls: http://wiki.nginx.org/Pitfalls
+# - QuickStart: http://wiki.nginx.org/QuickStart
+# - Configuration: http://wiki.nginx.org/Configuration
+#
+# It's recommended to move this file elsewhere and start with a clean one, while keeping
+# this as a reference. Alternatively, disable it in sites-enabled.
+#
+# For detailed examples, check /usr/share/doc/nginx-doc/examples/.
+##
+
+# Default server configuration
+#
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    # Handle requests for '/airbnb-onepage/' by proxying them to http://0.0.0.0:5000
+    location /airbnb-onepage/ {
+        proxy_pass http://0.0.0.0:5000;
+    }
+
+    # Serve static files under '/hbnb_static/' from '/data/web_static/current/'
+    location /hbnb_static/ {
+        alias /data/web_static/current/;
+    }
+
+    # Set custom header indicating server identity
+    add_header X-Served-By "249735-web-01";
+
+    # Redirect to YouTube when '/redirect_me' is accessed
+    rewrite ^/redirect_me https://www.youtube.com permanent;
+
+    # Custom 404 error page
+    error_page 404 /custom_404.html;
+    location = /custom_404.html {
+        root /usr/share/nginx/html;
+        internal;
+    }
+
+    root /var/www/html;
+
+    # Specify default index files
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name _;
+
+    location / {
+        # Try serving request as file, then directory, then fall back to 404
+        try_files $uri $uri/ =404;
+    }
+
+    # PHP scripts handling (commented out by default)
+    #location ~ \.php$ {
+    #    include snippets/fastcgi-php.conf;
+    #    fastcgi_pass 127.0.0.1:9000;  # Use appropriate FastCGI server
+    #}
+
+    # Deny access to .htaccess files
+    #location ~ /\.ht {
+    #    deny all;
+    #}
+}
+
+# Virtual Host configuration for example.com
+#
+# You can move this to a separate file under sites-available/ and symlink it to
+# sites-enabled/ to enable it.
+#
+#server {
+#    listen 80;
+#    listen [::]:80;
+#
+#    server_name example.com;
+#
+#    root /var/www/example.com;
+#    index index.html;
+#
+#    location / {
+#        try_files $uri $uri/ =404;
+#    }
+#}
