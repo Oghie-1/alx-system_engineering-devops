@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-
-
+import json
+import sys
 import requests
+
 
 def number_of_subscribers(subreddit):
 	"""
@@ -10,16 +11,16 @@ def number_of_subscribers(subreddit):
 	"""
 
 	url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-	headers = {'User-Agent': 'Custom User Agent'}
+	headers = {'User-Agent': 'Custom User Agent by /u/ResponsibleCup1157 for Holberton School'}
 
 	try:
 		response = requests.get(url, headers=headers, allow_redirects=False)
 		
-		if response.status_code == 200:
+		if response.status_code < 300:
 			data = response.json()
 			return data['data']['subscribers']
 		else:
-			print("Invalid subreddit")
+			print("Invalid subreddit:", response.status_code)
 			return 0
 	
 	except Exception as e:
