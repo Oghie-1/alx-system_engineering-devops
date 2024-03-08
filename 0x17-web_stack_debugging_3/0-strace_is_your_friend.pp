@@ -1,7 +1,5 @@
-file { '/var/www/html/wp-settings.php':
-  ensure  => file,
-  content => template('your_module/wp-settings.erb'),
-}
+#fixes bad 'phpp' extensions to 'php'
+
 
 exec { 'fix-wordpress-phpp':
   command => 'sed -i s/phpp/php/g /var/www/html/wp-settings.php',
