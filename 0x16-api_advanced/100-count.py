@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import requests
 """
 Recursive function that queries a Reddit API
