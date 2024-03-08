@@ -16,7 +16,7 @@ def count_words(subreddit, word_list, after=None, counts=None):
     if after is None:
         url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     else:
-        url = f"https://www.reddit.com/r/{subreddit}/hot.json?after={after}"
+        url = "https://www.reddit.com/r/{}/hot.json?after={}".format(subreddit, after)
 
     headers = {'User-Agent': 'Custom User Agent by u/ResponsibleCup1157 for holberton'}
 
@@ -40,10 +40,10 @@ def count_words(subreddit, word_list, after=None, counts=None):
         else:
             sorted_counts = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
             for word, count in sorted_counts:
-                print(f"{word}: {count}")
+                print("{}: {}".format(word, count))
     except requests.exceptions.RequestException as e:
-        print(f"Error: Unable to fetch data from Reddit: {e}")
+        print("Error: Unable to fetch data from Reddit: {}".format(e))
         return None
     except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+        print("An unexpected error occurred: {}".format(e))
         return None
